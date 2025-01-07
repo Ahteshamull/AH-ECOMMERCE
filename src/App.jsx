@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import Shop from "./pages/Shop";
 import ProductView from "./pages/ProductView";
+import ForgetPass from "./pages/ForgetPass";
+import ChackOut from "./pages/ChackOut";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -28,6 +30,8 @@ const router = createBrowserRouter(
         <Route path="/account" element={<Account />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/view" element={<ProductView/>}></Route>
+        <Route path="/password" element={<ForgetPass/>}></Route>
+        <Route path="/checkout" element={<ChackOut/>}></Route>
       </Route>
     </>
   )

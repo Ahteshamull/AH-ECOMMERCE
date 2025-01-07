@@ -3,7 +3,7 @@ import React from "react";
 
 const Products = () => {
   return (
-    <div className="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-2 lg:gap-5  mt-5">
+    <div className="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-5 grid-cols-3  mt-5">
       <div className="w-80 mt-5 bg-white shadow rounded">
         {" "}
         <div

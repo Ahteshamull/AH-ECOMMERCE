@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdContacts } from "react-icons/md";
+import { Link } from "react-router";
 import {
   Navbar,
   MobileNav,
@@ -25,6 +26,9 @@ import {
   Bars2Icon,
 } from "@heroicons/react/24/solid";
 import Container from "../layout/Container";
+import { FcAbout } from "react-icons/fc";
+import { FaIdCard, FaInfoCircle } from "react-icons/fa";
+import { MdContactPage } from "react-icons/md";
 
 // profile menu component
 const profileMenuItems = [
@@ -125,10 +129,17 @@ const navListItems = [
   {
     label: "Shop",
     icon: FaBagShopping,
+    href: "/shop",
   },
   {
-    label: "Contact",
-    icon: MdContacts,
+    label: "About Us",
+    icon: MdContactPage,
+    Link: "/about",
+  },
+  {
+    label: "Card",
+    icon: FaIdCard,
+    Link: "/card",
   },
 ];
 
@@ -136,26 +147,48 @@ function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
+
       {navListItems.map(({ label, icon }, key) => (
         <Typography
           key={label}
           as="a"
-          href="#"
+          // href={icon === FaBagShopping ? "/shop" : "/about"}
           variant="small"
           color="gray"
-          className="font-medium text-blue-gray-500"
+          className="font-medium text-blue-500"
         >
-          <MenuItem className="flex items-center gap-2 lg:rounded-full">
-            {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-            <span className="text-gray-900 font-roboto"> {label}</span>
-          </MenuItem>
+          <Link
+            to={
+              icon === FaBagShopping
+                ? "/shop"
+                : icon === MdContactPage
+                ? "/about"
+                : "/card"
+            }
+          >
+            <MenuItem className="flex items-center gap-2 lg:rounded-full">
+              {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+              <span className="text-gray-900 font-roboto"> {label}</span>
+            </MenuItem>
+          </Link>
+          {/* 
+          {icon === FaIdCard && (
+            <Link to={"/card"}>
+              <MenuItem className="flex items-center gap-2 lg:rounded-full">
+                {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+                <span className="text-gray-900 font-roboto"> {label}</span>
+              </MenuItem>
+            </Link>
+          )} */}
         </Typography>
       ))}
-      <Button size="sm" variant="text">
-        <span className="font-roboto text-sm font-medium text-primary">
-          Log In
-        </span>
-      </Button>
+      <Link to={"/login"}>
+        <Button size="sm" variant="text">
+          <span className="font-roboto text-sm font-medium text-primary">
+            Log In
+          </span>
+        </Button>
+      </Link>
     </ul>
   );
 }
@@ -176,13 +209,14 @@ export function EcommerceNavbar() {
     <Navbar className="mx-auto  p-2 lg:rounded-full lg:pl-6">
       <Container>
         <div className="relative mx-auto flex items-center justify-between text-blue-gray-900 ">
-          <Typography
-            as="a"
-            href="/"
-            className="mr-4 ml-2 cursor-pointer py-1.5 text-primary font-roboto font-bold"
-          >
-            AH SHOP
-          </Typography>
+          <Link to={"/"}>
+            <Typography
+              as="a"
+              className="mr-4 ml-2 cursor-pointer py-1.5 text-primary font-roboto font-bold"
+            >
+              AH Shop
+            </Typography>
+          </Link>
           <div className="mx-auto hidden lg:block">
             <NavList />
           </div>

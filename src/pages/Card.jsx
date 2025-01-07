@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../layout/Container";
+import { Link } from "react-router";
 
 const Card = () => {
   return (
@@ -303,18 +304,22 @@ const Card = () => {
                 </li>
               </ul>
               <div className="mt-8 space-y-2">
-                <button
-                  type="button"
-                  className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"
-                >
-                  Checkout
-                </button>
-                <button
-                  type="button"
-                  className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-md"
-                >
-                  Continue Shopping
-                </button>
+                <Link to={"/checkout"}>
+                  <button
+                    type="button"
+                    className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+                  >
+                    Checkout
+                  </button>
+                </Link>
+                <Link to={"/"}>
+                  <button
+                    type="button"
+                    className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-md"
+                  >
+                    Continue Shopping
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
