@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Watch = () => {
   return (
@@ -79,7 +79,7 @@ const Watch = () => {
               <h4 className="text-sm sm:text-base font-bold text-gray-800">
                 Classic Bluetooth
               </h4>
-              <h4 className="text-sm sm:text-base text-blue-600 font-bold mt-2">
+              <h4 className="text-sm sm:text-base text-blue-500 font-bold mt-2">
                 $60.00
               </h4>
             </div>
@@ -484,6 +484,6 @@ const Watch = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Watch
+export default Watch;
